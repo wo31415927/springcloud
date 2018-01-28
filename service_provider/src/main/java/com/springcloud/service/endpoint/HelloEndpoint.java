@@ -1,4 +1,4 @@
-package com.springcloud.service.hello;
+package com.springcloud.service.endpoint;
 
 import com.netflix.appinfo.EurekaInstanceConfig;
 
@@ -23,8 +23,14 @@ public class HelloEndpoint {
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String hello() {
-        this.logger.info("/hello, instanceId:{}, host:{}", eurekaInstanceConfig.getInstanceId(), eurekaInstanceConfig.getHostName(false));
+        this.logger.info("/helloGet, instanceId:{}, host:{}", eurekaInstanceConfig.getInstanceId(), eurekaInstanceConfig.getHostName(false));
         return "Hello, Spring Cloud! My port is " + String.valueOf(serverPort);
+    }
+
+    @RequestMapping(value = "/hello", method = RequestMethod.POST)
+    public String helloPost() {
+        this.logger.info("/helloPost, instanceId:{}, host:{}", eurekaInstanceConfig.getInstanceId(), eurekaInstanceConfig.getHostName(false));
+        return "{\"method\":\"Post\", \"port\":\"" + String.valueOf(serverPort) + "\"}";
     }
 }
 
