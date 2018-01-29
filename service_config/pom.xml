@@ -9,25 +9,33 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>service_zuul</artifactId>
+    <artifactId>service_config</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka-server</artifactId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zuul</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zipkin</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.squareup.okhttp</groupId>
-            <artifactId>okhttp</artifactId>
-            <version>2.7.5</version>
+            <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+
 </project>
